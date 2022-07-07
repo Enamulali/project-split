@@ -46,8 +46,9 @@ const ChoreModal = ({
             <Text style={styles.modalTitle}>{chore.chore_name}</Text>
             <Text style={styles.modalText}>{chore.description}</Text>
             <Text style={styles.modalText}>
-              Assigned to {chore.user_assigned} points
+              Assigned to: {chore.users_assigned}
             </Text>
+            <Text>Points: {chore.difficulty * 2}</Text>
             <Text style={styles.modalText}>Due on {dueDate}</Text>
 
             <View style={styles.buttonContainer}>
@@ -122,6 +123,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "column",
+    marginTop: 10,
   },
   threeButtons: {
     flexDirection: "row",

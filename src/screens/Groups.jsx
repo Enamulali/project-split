@@ -7,6 +7,7 @@ import {
   Pressable,
 } from "react-native";
 import React, { useEffect, useState, useContext } from "react";
+import { Feather } from "@expo/vector-icons";
 import {
   getBadges,
   getChoresByHouseholdId,
@@ -16,14 +17,12 @@ import {
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import { Avatar } from "react-native-paper";
 import { FontAwesome5 } from "@expo/vector-icons";
-
 const Groups = () => {
   const currentUser = useContext(CurrentUserContext);
   const [usersData, setUsersData] = useState([]);
   const [choresData, setChoresData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [choreVotes, setChoreVotes] = useState(0);
-
+  // const [choreVotes, setChoreVotes] = useState(0);
   useEffect(() => {
     getUsersByHousehold(currentUser).then((users) => {
       setUsersData(users);
@@ -32,7 +31,6 @@ const Groups = () => {
       setChoresData(chores);
     });
   }, []);
-
   return (
     <ScrollView>
       <SafeAreaView>
@@ -54,7 +52,6 @@ const Groups = () => {
                     size={80}
                     style={styles.avatarBackground}
                   />
-
                   <Text style={styles.points}>
                     <FontAwesome5
                       style={styles.icon}
@@ -85,13 +82,24 @@ const Groups = () => {
                   <Text style={styles.username}>{chore.chore_name}</Text>
                   <Text>Difficulty: {chore.difficulty}</Text>
                   <Text>Completed: {chore.is_completed}</Text>
-                  <Text>Votes: {chore.votes + choreVotes}</Text>
+                  <Text>Votes: {chore.votes}</Text>
                   <View style={styles.userInfoSection}></View>
                   <Pressable
                     style={styles.button}
                     onPress={() => {
                       const chore_id = chore.chore_id;
-                      patchChoreVotes(chore_id);
+                      const addOne = (chore.votes += 1);
+                      chore.votes = addOne;
+                      setChoresData((currentChores) => {
+                        return currentChores.map((currentChore) => {
+                          if (currentChore === chore.chore_id) {
+                            currentChore.votes++;
+                            console.log(currentChore);
+                          }
+                          return currentChore;
+                        });
+                      });
+                      patchChoreVotes(chore_id, addOne);
                     }}
                   >
                     <Text>Like</Text>
@@ -105,9 +113,7 @@ const Groups = () => {
     </ScrollView>
   );
 };
-
 export default Groups;
-
 const styles = StyleSheet.create({
   bg_colour: {
     padding: 10,
@@ -129,6 +135,14 @@ const styles = StyleSheet.create({
     elevation: 15,
     marginTop: -40,
     marginBottom: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 5,
   },
   avatarBackground: {
     backgroundColor: "#5E8B7E",

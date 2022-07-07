@@ -5,6 +5,7 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import React from "react";
 import { TouchableRipple } from "react-native-paper";
@@ -58,13 +59,11 @@ const UserInfoText = styled.View`
 const UserName = styled.Text`
   font-size: 14px;
   font-weight: bold;
-  font-family: "Lato-Regular";
 `;
 
 const PostTime = styled.Text`
   font-size: 12px;
   color: #666;
-  font-family: "Lato-Regular";
 `;
 
 const MessageText = styled.Text`
@@ -75,8 +74,8 @@ const MessageText = styled.Text`
 const Messages = [
   {
     id: "1",
-    userName: "Gugandeep Binning",
-    userImg: require("../../assets/users/fruit1.png"),
+    userName: "Gugz Binning",
+    userImg: require("../../assets/users/fruit3.png"),
     messageTime: "10 mins ago",
     messageText:
       "Hello everyone, does anyone want to swap a chore or shall i assign it to one of you at random!??",
@@ -91,7 +90,7 @@ const Messages = [
   {
     id: "3",
     userName: "Enamul Ali",
-    userImg: require("../../assets/users/fruit3.png"),
+    userImg: require("../../assets/users/fruit1.png"),
     messageTime: "20 hours ago",
     messageText: "I hate doing the laundry guys!",
   },
@@ -113,31 +112,36 @@ const Messages = [
 
 const Msg = ({ navigation }) => {
   return (
-    <Container>
-      <FlatList
-        data={Messages}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Card
-            onPress={() =>
-              navigation.navigate("Chat", { userName: item.userName })
-            }
-          >
-            <UserInfo>
-              <UserImgWrapper>
-                <UserImg source={item.userImg} />
-              </UserImgWrapper>
-              <TextSection>
-                <UserInfoText>
-                  <UserName>{item.userName}</UserName>
-                  <PostTime>{item.messageTime}</PostTime>
-                </UserInfoText>
-                <MessageText>{item.messageText}</MessageText>
-              </TextSection>
-            </UserInfo>
-          </Card>
-        )}
-      />
+    <Container style={styles.bg_colour}>
+      <View style={styles.bg_colour}>
+        <Text style={styles.heading}>Household Chat Room</Text>
+      </View>
+      <View style={styles.infoCard}>
+        <FlatList
+          data={Messages}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <Card
+              onPress={() =>
+                navigation.navigate("Chat", { userName: item.userName })
+              }
+            >
+              <UserInfo>
+                <UserImgWrapper>
+                  <UserImg source={item.userImg} />
+                </UserImgWrapper>
+                <TextSection>
+                  <UserInfoText>
+                    <UserName>{item.userName}</UserName>
+                    <PostTime>{item.messageTime}</PostTime>
+                  </UserInfoText>
+                  <MessageText>{item.messageText}</MessageText>
+                </TextSection>
+              </UserInfo>
+            </Card>
+          )}
+        />
+      </View>
     </Container>
   );
 };
@@ -145,9 +149,79 @@ const Msg = ({ navigation }) => {
 export default Msg;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  bg_colour: {
+    padding: 10,
+    width: "100%",
+    backgroundColor: "#2F5D62",
+    height: 150,
+    alignItems: "center",
+  },
+  infoCard: {
+    alignSelf: "center",
+    flexDirection: "row",
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    width: "90%",
+    padding: 20,
+    paddingBottom: 22,
+    borderRadius: 10,
+    shadowOpacity: 80,
+    elevation: 15,
+    marginTop: -40,
+    marginBottom: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  avatarBackground: {
+    backgroundColor: "#5E8B7E",
+  },
+  cardContent: {
+    padding: 20,
+  },
+  heading: {
+    fontSize: 25,
+    fontWeight: "bold",
+    padding: 10,
+    marginTop: 10,
+    color: "white",
+    alignItems: "center",
+  },
+  username: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#2F5D62",
+    paddingBottom: 10,
+  },
+  points: {
+    fontSize: 12,
+    color: "#5E8B7E",
+    paddingTop: 10,
+  },
+  button: {
+    marginTop: 20,
     alignItems: "center",
     justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    width: 10,
+    backgroundColor: "#DFEEEA",
+  },
+  icon: {
+    marginRight: 5,
+  },
+  banner: {
+    padding: 10,
+    width: "100%",
+    backgroundColor: "#2F5D62",
+    height: 125,
+    alignItems: "center",
   },
 });

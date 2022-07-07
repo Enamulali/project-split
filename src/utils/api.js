@@ -174,9 +174,9 @@ export const patchUserPoints = (userId, chorePoints) => {
   });
 };
 
-export const patchChoreVotes = (chore_id) => {
+export const patchChoreVotes = (chore_id, addOne) => {
   return updateDoc(doc(db, "chores", chore_id), {
-    votes: 1,
+    votes: addOne,
   });
 };
 

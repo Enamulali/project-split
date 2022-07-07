@@ -87,7 +87,7 @@ const SetupProfile = ({ navigation }) => {
       username: username,
       household_id: "",
       points: 0,
-      badges_achieved: "",
+      badges_achieved: ["0"],
     }).then(() => {
       navigation.navigate("Setup Household");
     });

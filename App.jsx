@@ -22,7 +22,8 @@ export default function App() {
     headerStyle: { backgroundColor: "#00061A" },
     headerTitleStyle: { color: "white" },
     headerTintColor: "white",
-    headerShown: "false",
+    headerLeft: () => null,
+    headerBackVisible: false,
   };
 
   const [currentUser, setCurrentUser] = useState({});

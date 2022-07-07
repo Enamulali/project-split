@@ -11,13 +11,12 @@ const Chat = ({ navigation }) => {
     setMessages([
       {
         _id: 1,
-        text: "Hello",
+        text: "Hey, whos doing what",
         createdAt: new Date(),
         user: {
           _id: [2, 3, 4, 5],
           username: "Gugz",
-          avatar:
-            "https://cdn-icons.flaticon.com/png/128/1791/premium/1791364.png?token=exp=1657070624~hmac=cc292d9f98a4222bb80940d7c37cc5e7",
+          avatar: "https://cdn-icons-png.flaticon.com/512/590/590690.png",
         },
       },
 
@@ -39,8 +38,7 @@ const Chat = ({ navigation }) => {
         user: {
           _id: [1, 2, 4, 5],
           username: "Musa",
-          avatar:
-            "https://cdn-icons.flaticon.com/png/128/3137/premium/3137034.png?token=exp=1657070624~hmac=468f32ee6a443ad9477c9ba048177baa",
+          avatar: "https://cdn-icons-png.flaticon.com/512/590/590682.png",
         },
       },
 
@@ -57,13 +55,23 @@ const Chat = ({ navigation }) => {
 
       {
         _id: 5,
-        text: "good night",
+        text: "Hi everyone thanks for joining the house",
         createdAt: new Date(),
         user: {
           _id: [1, 2, 3, 4],
           username: "Enam",
-          avatar:
-            "https://cdn-icons.flaticon.com/png/128/3137/premium/3137034.png?token=exp=1657070624~hmac=468f32ee6a443ad9477c9ba048177baa",
+          avatar: "https://cdn-icons-png.flaticon.com/512/590/590677.png",
+        },
+      },
+
+      {
+        _id: 6,
+        text: "Lets go!",
+        createdAt: new Date(),
+        user: {
+          _id: [1, 2, 3, 5],
+          username: "Kieran",
+          avatar: "https://cdn-icons-png.flaticon.com/128/590/590685.png",
         },
       },
     ]);

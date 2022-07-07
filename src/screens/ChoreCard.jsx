@@ -59,11 +59,7 @@ const ChoreCard = ({ chore, householdChores, setHouseholdChores }) => {
                     style={styles.button}
                     onPress={() => setModalVisible(true)}
                   >
-                    <List.Icon
-                      {...props}
-                      icon="information"
-                      style={styles.button}
-                    />
+                    <Text>INFO</Text>
                   </Button>
                 </View>
               )}
@@ -88,8 +84,16 @@ const styles = StyleSheet.create({
   choreCard: {
     width: "100%", //p and m 0 - no difference
     borderRadius: 10,
+    marginBottom: -80, //remove for web (ios workaround)
   },
   checkbox: {
+    backgroundColor: "#DFEEEA",
+    borderRadius: 10,
+    maxHeight: 32,
+    maxWidth: 32,
     justifyContent: "space-around",
+    alignItems: "center",
+    marginTop: 10,
+    marginRight: 10,
   },
 });

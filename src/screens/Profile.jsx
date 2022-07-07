@@ -8,13 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
-import {
-  Avatar,
-  Text,
-  Title,
-  Caption,
-  TouchableRipple,
-} from "react-native-paper";
+import { Avatar, Text, TouchableRipple } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import { getBadges, getHouseholdbyUser, getUserDataById } from "../utils/api";
@@ -23,6 +17,7 @@ import { db } from "../../firebase-config";
 const { width } = Dimensions.get("screen");
 import { LinearGradient } from "expo-linear-gradient";
 import { auth } from "../../firebase-config";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 const Profile = ({ navigation }) => {
   const [mode, setMode] = useState(false);
@@ -89,15 +84,22 @@ const Profile = ({ navigation }) => {
         </View>
 
         <View style={styles.infoCard}>
-          <Text styles={styles.subtitle}>{household.household_name}</Text>
+          <FontAwesome5 name="house-user" size={20} color="#2F5D62" />
+          <Text style={styles.subtitle}>
+            {`    ${household.household_name}`}
+          </Text>
+        </View>
+        <View style={styles.infoCard2}>
+          <Text style={styles.subtitle}>Invite your housemates!</Text>
+          <Text selectable={true}> {user.household_id}</Text>
         </View>
 
         <View style={styles.infoCard}>
-          <Text styles={styles.subtitle}>Overall points: {user.points}</Text>
+          <Text style={styles.subtitle}>My points: {user.points}</Text>
         </View>
         {/* this is displaying the current users badges */}
         <View style={styles.infoCard}>
-          <Text styles={styles.subtitle}>My badges:</Text>
+          <Text style={styles.subtitle}>My badges</Text>
           {userBadges.map((badge) => {
             return (
               <View key={badge.name}>
@@ -105,14 +107,15 @@ const Profile = ({ navigation }) => {
                   source={{
                     uri: badge.img_url,
                   }}
-                  size={80}
+                  size={60}
+                  style={styles.badge}
                 />
               </View>
             );
           })}
         </View>
         <View style={styles.infoCard}>
-          <Text styles={styles.subtitle}>Your upcoming chores</Text>
+          <Text style={styles.subtitle}>Your upcoming chores</Text>
         </View>
       </SafeAreaView>
     </ScrollView>
@@ -166,6 +169,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 80,
     elevation: 15,
     marginTop: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 5,
   },
   listItem: {
     flexDirection: "row",
@@ -180,5 +191,30 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 26,
     textAlign: "left",
+  },
+  badge: {
+    backgroundColor: "transparent",
+  },
+  infoCard2: {
+    alignSelf: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    width: "90%",
+    padding: 20,
+    paddingBottom: 22,
+    borderRadius: 10,
+    shadowOpacity: 80,
+    elevation: 15,
+    marginTop: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });
