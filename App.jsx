@@ -53,11 +53,16 @@ export default function App() {
           <Stack.Screen
             name="Chat"
             component={Chat}
+            screenOptions={{ headerBackVisible: true }}
             options={({ route }) => ({
               title: route.params.userName,
             })}
           />
-          <Stack.Screen name="Msg" component={Msg} />
+          <Stack.Screen
+            name="Msg"
+            component={Msg}
+            screenOptions={{ headerBackVisible: true }}
+          />
         </Stack.Navigator>
       </CurrentUserContext.Provider>
     </NavigationContainer>

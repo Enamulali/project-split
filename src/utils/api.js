@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, deleteUser } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import {
   addDoc,
   collection,
@@ -10,7 +10,6 @@ import {
   where,
   deleteDoc,
   Timestamp,
-  FieldValue,
 } from "firebase/firestore";
 import { auth, db } from "../../firebase-config";
 
