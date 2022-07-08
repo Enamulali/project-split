@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   choreCard: {
     width: "100%", //p and m 0 - no difference
     borderRadius: 10,
-    marginBottom: -80, //remove for web (ios workaround)
+    // marginBottom: -80, //remove for web (ios workaround)
   },
   checkbox: {
     backgroundColor: "#DFEEEA",
