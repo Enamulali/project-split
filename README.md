@@ -6,13 +6,19 @@ Our House is a social app which makes enjoyable the process of delegating chores
 
 The idea for Our House comes from our personal experiences and provides a solution to getting things done!
 
+<br>
+
 ## Installation
 
 Follow the instructions below to configure and run your own instance of Our House.
 
+<br>
+
 ### Requirements
 
 This project was built using React Native, Firebase Auth and uses Cloud Firestore. The project requires Node.js (v16.0) and npm (v8.13).
+
+<br>
 
 ### Installation
 
@@ -31,6 +37,8 @@ and `cd` into the directory
 npm install
 ```
 
+<br>
+
 ### Usage
 
 To run the app locally, run:
@@ -48,6 +56,8 @@ npm run ios
 npm run android
 ```
 
+<br>
+
 ## About
 
 Our House was created by Team 09:fifteen as part of our final project during the [Northcoders](https://northcoders.com) coding bootcamp.
@@ -57,3 +67,13 @@ Our House was created by Team 09:fifteen as part of our final project during the
 [Enamul](https://github.com/Enamulali),
 [Musa](https://github.com/musaissa15),
 [Kieran](https://github.com/kieranjoyce), [Karly](https://github.com/Karly-22) and [Gugandeep](https://github.com/gsbinning)
+
+<br>
+
+### Note
+
+The original code source (with commit and PR history) can be found [here](https://github.com/musaissa15/Project-split):
+
+```
+https://github.com/musaissa15/Project-split.git
+```
