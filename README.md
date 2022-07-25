@@ -49,6 +49,8 @@ npm run web
 
 The app should now be available on [https://localhost:19006](https://localhost:19006).
 
+The terminal will display a QR code. Scanning this on any android or ios device will launch the app on your mobile device. Note, the Expo Go app should be installed on your device.
+
 Alternatively to open on ios or android simulator, run:
 
 ```
