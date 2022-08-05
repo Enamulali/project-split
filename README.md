@@ -14,8 +14,19 @@ Follow the instructions below to configure and run your own instance of Our Hous
 
 ### Requirements
 
-This project was built using React Native, Firebase Auth and uses Cloud Firestore. The project requires Node.js (v16.0) and npm (v8.13).
+This project was built using React Native, Firebase Auth and uses Cloud Firestore. The project requires **Node.js (v16.0.0)**, **npm (v8.13)** and **expo-cli**.
 
+Ensure you are running v16.0.0 of node by running: 
+```
+node -v
+```
+The easiest way to change your version of node is using NVM. [Check here for instructions](https://npm.github.io/installation-setup-docs/installing/using-a-node-version-manager.html).
+
+Install expo-cli globally using:
+
+```
+npm install -g expo-cli
+```
 
 ### Installation
 
